@@ -1,24 +1,35 @@
-const choice = ['Rock', 'Paper', 'Scissors'];
+const choice = ['rock', 'paper', 'scissors'];
+
+let humanScore = 0;
+let computerScore = 0;
+const computerSelection = getComputerChoice();
+let playerSelection = '';
 
 function getComputerChoice() {
     
-    let computerSelection = choice[Math.floor(Math.random()*choice.length)];
+    let random = choice[Math.floor(Math.random()*choice.length)];
     
-    return computerSelection;    
+    return random;    
 }
 
 function play(playerSelection, computerSelection) {
     if (playerSelection === choice[0] && computerSelection === choice[1]) {
+        computerScore += 1;
         console.log(`You chose ${choice[0]} and Computer chose ${choice[1]}. The Computer has won.`);
     } else if (playerSelection === choice[1] && computerSelection === choice[0]){
+        humanScore += 1;
         console.log(`You chose ${choice[1]} and Computer chose ${choice[0]}. You have won this round.`);
     } else if (playerSelection === choice[2] && computerSelection === choice[1]){
+        humanScore += 1;
         console.log(`You chose ${choice[2]} and Computer chose ${choice[1]}. You have won this round.`)
     } else if (playerSelection === choice[1] && computerSelection === choice[2]){
+        computerScore += 1;
         console.log(`You chose ${choice[1]} and Computer chose ${choice[2]}. The Computer has won.`)
     } else if(playerSelection === choice[0] && computerSelection === choice[2]){
+        humanScore += 1;
         console.log(`You chose ${choice[0]} and Computer chose ${choice[2]}. You have won this round.`)
     } else if(playerSelection === choice[2] && computerSelection === choice[0]){
+        computerScore += 1;
         console.log(`You chose ${choice[2]} and Computer chose ${choice[0]}. The Computer has won.`)
     } else if(playerSelection === choice[0] && computerSelection === choice[0]){
         console.log(`You both chose ${choice[0]}. This round is a tie!`)
@@ -31,9 +42,37 @@ function play(playerSelection, computerSelection) {
     }
 }
 
-console.log(play('Paper', getComputerChoice()));
+function game(){
+    
+    for (let i = 0; i < 5; i++){
+        play(prompt("Input your choice", "Rock, Paper or Scissors?").toLowerCase(), getComputerChoice());
 
-// console.log(getComputerChoice());
+       for (let i = 0; i < 1; i++){
+            if (humanScore <= 4 && computerScore <= 4) {
+                console.log('Current score: Human: ', humanScore, ' Computer: ', computerScore);
+                setTimeout(game, 0);
+            } else {
+                console.log('Current score: Human: ', humanScore, ' Computer: ', computerScore);
+                winCondition();
+            }
+        }
+        break;
+    }
+}
+
+
+function winCondition(){
+    if (humanScore > 4) {
+        console.log('Player Wins!') ;
+      }
+    if (computerScore > 4) {
+        console.log('Computer Wins!') ;
+    }
+}
+
+game();
+
+// console.log(playerSelection);
 // console.log(getComputerChoice());
 
 
@@ -179,4 +218,122 @@ console.log(play('Paper', getComputerChoice()));
 
 // let result = Boolean('0');
 
-// console.log(result, typeof result);
+// // console.log(result, typeof result);
+
+// for(i = 0; i < 10; i++){
+//     console.log('ace', i);
+// }
+
+// console.log('loop finished');
+
+// const name = ['Ace', 'Dess', 'Steve'];
+
+// for(i = 0; i < name.length; i++) {
+//     // console.log(name[i]);
+//     let html = `<div>${name[i]}</div>`;
+//     console.log(html);
+// }
+
+// i = 0;
+
+// while(i < name.length) {
+//     // console.log(i + ` is ${name[i]}`);
+//     let html = i + ` is ${name[i]}`;
+//     console.log(html);
+//     i++;
+// }
+
+// i = 3;
+
+// do {
+//     console.log('the value of i is ' + i);
+//     i++;
+// } while(i < 5);
+
+// const age = 20;
+
+// if(age > 20){
+//     console.log('Old Man!')
+// } else {
+//     console.log('you cant be in here!')
+// }
+
+// const name = ['Ace', 'Dess', 'Steve', 'wisdom'];
+
+// if(name.length > 3){
+//     console.log("That's a lot of names!");
+// }
+
+// let password = '';
+
+// password = 'aceygram123@';
+
+// if(password.length >= 12 && password.includes('@')){
+//     console.log('the password is very strong');
+// } else if(password.length >= 8){
+//     console.log('the password is long enough');
+// } else {
+//     console.log('there has been an error!');
+// }
+
+// const scores = [50, 25, 0, 30, 100, 20, 10];
+
+// for(let i = 0; i < scores.length; i++){
+//     if(scores[i] === 0){
+//         continue;
+//     }
+
+
+//     console.log('your score: ', scores[i]);
+
+//     if(scores[i] === 100){
+//         console.log('congrats, you are the winner!');
+//         break;
+//     }
+
+// }
+
+
+// let grade = 'B';
+
+// if(grade === 'A'){
+//     console.log('You got an ' + grade)
+// } else if (grade === 'B') {
+//     console.log('You got an ' + grade)
+// } else if(grade === 'C'){
+//     console.log('You got an ' + grade)
+// } else if(grade === 'D'){
+//     console.log('You got an ' + grade)
+// } else if (grade === 'E'){
+//     console.log('You got an ' + grade)
+// } else if (grade === 'F'){
+//     console.log('You got an ' + grade)
+// } else {
+//     console.log('error')
+// }
+
+// const grade = 'F';
+
+// switch(grade){
+//     case 'A':
+//         console.log('you got an ' + grade);
+//         break;
+//     case 'B':
+//         console.log('you got a ' + grade);
+//         break;
+//     case 'C':
+//         console.log('you got a ' + grade);
+//         break;
+//     case 'D':
+//         console.log('you got a ' + grade);
+//         break;
+//     case 'E':
+//         console.log('you got an ' + grade);
+//         break;
+//     case 'F':
+//         console.log('you got an ' + grade);
+//         break;
+//     default:
+//     console.log('There is an error!');
+
+// }
