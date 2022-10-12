@@ -70,7 +70,7 @@ function winCondition(){
     }
 }
 
-game();
+// game();
 
 // console.log(playerSelection);
 // console.log(getComputerChoice());
