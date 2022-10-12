@@ -38,7 +38,7 @@ function play(playerSelection, computerSelection) {
     } else if(playerSelection === choice[2] && computerSelection === choice[2]){
         console.log(`You both chose ${choice[2]}. This round is a tie!`)
     } else {
-        console.log("There is an error!")
+        console.log("You typed the wrong input, please try again!")
     }
 }
 
