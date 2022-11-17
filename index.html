@@ -5,12 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript | Rock, Paper and Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Rubik+Bubbles&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome to the Game of Rock, Paper and Scissors.</h1>
-    <h2>To play, please open the console by holding ctrl + alt + i on your keyboard! <br> Select Console if not selected and type "game()" inside the console then hit <br> enter to activate 5 rounds of Rock, Paper and Scissors with the Computer</h2>
+    <div class="title">
+        <h1>Welcome to the Game of Rock, Paper and Scissors.</h1>
+        <h2>This is game of 5 rounds with the computer and the first opponent to get up to 5 points win. To start this game, click on the "Start" button.</h2>
+    </div>
 
-    <ul class="people"></ul>
+    <div class="ctrl">
+        <button id="start-btn" class="btn">Start</button>
+        <button class="reset btn">Restart</button>
+    </div>
+
+
+    <div class="start-message"></div>
+
+    <br>
+
+    <div class="result"></div>
+
+    <div class="container">
+       <div class="block">
+            <button class="btn">Rock</button>
+            <img src="images/rocks.png" alt="" class="img">
+       </div>
+       <div class="block">
+            <button class="btn">Paper</button>
+            <img src="images/paper.png" alt="" class="img">
+       </div>
+       <div class="block">
+            <button class="btn">Scissors</button>
+            <img src="images/scissors.png" alt="" class="img">
+       </div>
+    </div>
+
+    <div class="score"></div>
+
+    
 
     <script src="main.js">
         
