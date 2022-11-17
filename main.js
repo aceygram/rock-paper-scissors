@@ -3,7 +3,26 @@ const choice = ['rock', 'paper', 'scissors'];
 let humanScore = 0;
 let computerScore = 0;
 const computerSelection = getComputerChoice();
-let playerSelection = '';
+const result = document.querySelector('.result');
+
+
+const start = document.querySelector('button');
+
+const startMgs = document.querySelector('.start-message');
+
+const buttons = document.querySelectorAll('.btn');
+
+
+start.addEventListener('click', game);
+
+start.addEventListener('mouseup', (e) => {
+    startMgs.textContent = 'Please select any of the Elements';
+});
+
+
+
+
+
 
 function getComputerChoice() {
     
@@ -13,62 +32,88 @@ function getComputerChoice() {
 }
 
 function play(playerSelection, computerSelection) {
+
+
     if (playerSelection === choice[0] && computerSelection === choice[1]) {
         computerScore += 1;
-        console.log(`You chose ${choice[0]} and Computer chose ${choice[1]}. The Computer has won.`);
+        result.textContent = `You chose ${choice[0]} and Computer chose ${choice[1]}. The Computer has won this round.`;
     } else if (playerSelection === choice[1] && computerSelection === choice[0]){
         humanScore += 1;
-        console.log(`You chose ${choice[1]} and Computer chose ${choice[0]}. You have won this round.`);
+        result.textContent = `You chose ${choice[1]} and Computer chose ${choice[0]}. You have won this round.`;
     } else if (playerSelection === choice[2] && computerSelection === choice[1]){
         humanScore += 1;
-        console.log(`You chose ${choice[2]} and Computer chose ${choice[1]}. You have won this round.`)
+        result.textContent = `You chose ${choice[2]} and Computer chose ${choice[1]}. You have won this round.`
     } else if (playerSelection === choice[1] && computerSelection === choice[2]){
         computerScore += 1;
-        console.log(`You chose ${choice[1]} and Computer chose ${choice[2]}. The Computer has won.`)
+        result.textContent = `You chose ${choice[1]} and Computer chose ${choice[2]}. The Computer has won this round.`
     } else if(playerSelection === choice[0] && computerSelection === choice[2]){
         humanScore += 1;
-        console.log(`You chose ${choice[0]} and Computer chose ${choice[2]}. You have won this round.`)
+        result.textContent = `You chose ${choice[0]} and Computer chose ${choice[2]}. You have won this round.`
     } else if(playerSelection === choice[2] && computerSelection === choice[0]){
         computerScore += 1;
-        console.log(`You chose ${choice[2]} and Computer chose ${choice[0]}. The Computer has won.`)
+        result.textContent = `You chose ${choice[2]} and Computer chose ${choice[0]}. The Computer has won this round.`
     } else if(playerSelection === choice[0] && computerSelection === choice[0]){
-        console.log(`You both chose ${choice[0]}. This round is a tie!`)
+        result.textContent = `You both chose ${choice[0]}. This round is a tie!`
     } else if(playerSelection === choice[1] && computerSelection === choice[1]){
-        console.log(`You both chose ${choice[1]}. This round is a tie!`)
+        result.textContent = `You both chose ${choice[1]}. This round is a tie!`
     } else if(playerSelection === choice[2] && computerSelection === choice[2]){
-        console.log(`You both chose ${choice[2]}. This round is a tie!`)
-    } else {
-        console.log("You typed the wrong input, please try again!")
+        result.textContent = `You both chose ${choice[2]}. This round is a tie!`
     }
 }
 
 function game(){
-    
-    for (let i = 0; i < 5; i++){
-        play(prompt("Input your choice", "Rock, Paper or Scissors?").toLowerCase(), getComputerChoice());
 
-       for (let i = 0; i < 1; i++){
+        // const blocks = document.querySelectorAll('block');
+        buttons.forEach(button => {
+            button.addEventListener('click', () =>{
+                startMgs.remove();
+            })
+        });
+    
+        buttons.forEach(button => {
+        button.addEventListener('mouseup', () =>{
+            function getPlayerChoice (){
+            const playerSelection = button.textContent.toLowerCase();
+            return playerSelection;
+            }
+        
+            play(getPlayerChoice(), getComputerChoice());
+        
+            const score = document.querySelector('.score')
+
             if (humanScore <= 4 && computerScore <= 4) {
-                console.log('Current score: Human: ', humanScore, ' Computer: ', computerScore);
-                setTimeout(game, 0);
+                score.textContent = `Current score: Human: ${humanScore} Computer: ${computerScore}`;
+                setTimeout(play, 0);
             } else {
-                console.log('Current score: Human: ', humanScore, ' Computer: ', computerScore);
+                score.textContent = `Current score: Human: ${humanScore} Computer: ${computerScore}`;
+                function winCondition(){
+                    if (humanScore > 4) {
+                        score.innerHTML = `${score.textContent} <br> You Won! <br> Please Reset the game!` ;
+                      }
+                    if (computerScore > 4) {
+                        score.innerHTML = `${score.textContent} <br> Computer Wins! <br> Please Restart the game!`;
+                    }
+                    if (computerScore >= 5 || humanScore >= 5){
+                        buttons.forEach(button => {
+                            button.addEventListener('mouseup', () => {
+                                score.innerHTML = 'Please Restart the game!';
+                                result.remove();
+                            })
+                        })
+                    }
+                }
                 winCondition();
             }
-        }
-        break;
+            })
+        })
     }
-}
 
+const reset = document.querySelector('.reset');
 
-function winCondition(){
-    if (humanScore > 4) {
-        console.log('Player Wins!') ;
-      }
-    if (computerScore > 4) {
-        console.log('Computer Wins!') ;
-    }
-}
+reset.addEventListener('mousedown', () => {
+    window.location.reload();
+})
+
 
 // game();
 
