@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    /* border: 1px solid black; */
+}
+
+body {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.5)),url(images/rps2.jpg);
+    background-position: top;
+    background-size: cover;
+    overflow-x: hidden;
+    /* text-align: center;
+    color: #fff; */
+}
+
+div > h1,
+div > h2,
+.start-message,
+.result,
+.score {
+    font-family: 'Rubik Bubbles', cursive;
+}
+
+div > h1{
+    font-size: 50px;
+}
+
+div > h2{
+    font-size: 25px;
+    padding: 10px 100px;
+}
+
+.title{
+    text-align: center;
+}
+
+.ctrl{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    margin-top: 20px;
+}
+
+.start-message{
+    text-align: center;
+    font-size: 25px;
+}
+
+.result,
+.score {
+    font-size: 23px;
+    text-align: center;
+}
+
+.result {
+    margin-top: -20px;
+}
+
+img {
+    height: 220px;
+}
+
+.container {
+    display: flex;
+    height: 50vh;
+    justify-content: space-between;
+    padding: 0 150px;
+}
+
+.block{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 20px;
+    padding: 30px 10px;
+}
+
+.btn {
+    border: 1px solid rgb(2, 205, 212);
+    border-radius: 20px;
+    color: rgb(2, 205, 212);
+    width: 120px;
+    padding: 5px 20px;
+    background-color: white;
+    font-size: 20px;
+}
+
+.btn:hover{
+    box-shadow: 0px 0px 10px 2px rgba(2, 205, 212, 0.5);
+    cursor: pointer;
+    background-color: rgb(2, 205, 212);
+    color: white;
+    transition-duration: 0.8s;
+}
+
+@media only screen and (max-width: 1025px){
+    .container {
+        height: 350px;
+    }
+
+    .start-message,
+    .result,
+    .score {
+        margin-top: 0px;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    div > h1{
+        font-size: 35px;
+    }
+    
+    div > h2{
+        font-size: 18px;
+        padding: 10px 70px;
+    }
+
+
+    .container {
+        height: 280px;
+        padding: 0 100px;
+    }
+
+    img {
+        height: 150px;
+    }
+
+    .start-message,
+    .result,
+    .score {
+        margin-top: 0px;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 769px) {
+    div > h1{
+        font-size: 25px;
+    }
+    
+    div > h2{
+        font-size: 15px;
+        padding: 10px 50px;
+
+    }
+
+    .container {
+        height: 250px;
+        padding: 0 40px;
+    }
+
+    img {
+        height: 150px;
+    }
+
+    .start-message,
+    .result,
+    .score {
+        font-size: 15px;
+        margin-top: 0px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    div > h1{
+        font-size: 23px;
+    }
+
+    div > h2{
+        font-size: 14px;
+        padding: 10px 25px;
+
+    }
+
+    .start-message{
+        padding-top: 20px;
+    }
+    
+    .container{
+        flex-direction: column;
+        height: 600px;
+        
+    }
+    
+    img {
+        height: 120px;
+    }
+
+    .btn {
+        width: 100px;
+        padding: 5px 15px;
+        font-size: 16px;
+    }
+
+    .block{
+        align-items: center;
+        padding: 10px 10px;
+    }
+
+    .result{
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 398px) {
+    div > h1{
+        font-size: 20px;
+    }
+
+    div > h2{
+        font-size: 13px;
+        padding: 8px 20px;
+
+    }
+
+    .start-message{
+        padding-top: 10px;
+    }
+    
+    .container{
+        height: 520px;
+        
+    }
+    
+    img {
+        height: 100px;
+    }
+
+    .block{
+        gap: 10px;
+        padding: 5px 5px;
+    }
+}
